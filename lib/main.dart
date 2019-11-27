@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_xiecheng/mywidget/ImageWidget.dart';
 import 'dart:io';
 import 'dart:convert';
 
@@ -25,6 +26,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+
+      routes: {
+        "imagepage":(context)=> ImageWidget(),
+      },
     );
   }
 }
@@ -48,9 +53,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+
+
   var items = ["图片控件","跳转"];
 
   int _counter = 0;
+
 
   void _incrementCounter() {
     setState(() {
@@ -65,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -101,6 +111,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _itemClick(int index) {
     Toast.show("index:$index", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
-
+  Navigator.pushNamed(context, "imagepage");
   }
 }
