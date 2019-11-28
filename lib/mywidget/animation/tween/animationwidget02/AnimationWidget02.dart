@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_xiecheng/mywidget/animation/animationwidget02/AnimatedWidget02.dart';
+
+import 'AnimatedWidget02.dart';
 
 
 class AnimationWidget02 extends StatefulWidget{

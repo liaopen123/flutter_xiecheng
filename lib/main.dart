@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/mywidget/AnimationWidget.dart';
 import 'package:flutter_xiecheng/mywidget/ImageWidget.dart';
+import 'package:flutter_xiecheng/mywidget/animation/hero/FirstHeroPage.dart';
+import 'package:flutter_xiecheng/mywidget/animation/hero/SecondHeroPage.dart';
 import 'dart:io';
 import 'dart:convert';
 
@@ -30,6 +32,8 @@ class MyApp extends StatelessWidget {
 
       routes: {
         "imagepage":(context)=> ImageWidget(),
+        "firstHeroPage":(context)=> FirstHeroPage(),
+        "secondHeroPage":(context)=> SecondHeroPage(),
       },
     );
   }
