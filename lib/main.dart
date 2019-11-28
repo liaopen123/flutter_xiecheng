@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_xiecheng/mywidget/AnimationWidget.dart';
 import 'package:flutter_xiecheng/mywidget/ImageWidget.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","跳转"];
+  var items = ["图片控件","动画"];
 
   int _counter = 0;
 
@@ -111,6 +112,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _itemClick(int index) {
     Toast.show("index:$index", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
-  Navigator.pushNamed(context, "imagepage");
+    switch(index){
+      case 0:
+        Navigator.pushNamed(context, "imagepage");
+        break;
+
+      case 1:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return AnimationWidget();
+        }));
+        break;
+
+    }
+
   }
 }
