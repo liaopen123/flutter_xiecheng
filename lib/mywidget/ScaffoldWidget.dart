@@ -12,59 +12,26 @@ class ScaffoldWidget extends StatelessWidget{
           appBar: AppBar(title: Text("scaffold应用大全"),automaticallyImplyLeading:true,flexibleSpace: Container(child: Text("tttttttttttt\ntttt\ntttttt\ntttt\ntttttt\ntttt\ntttttt"),),
             bottom: TabBar(
               isScrollable: true,
-              tabs: <Widget>[
-                Tab(
-                  text: "出租车",
-                  icon: Icon(Icons.local_taxi),
-                ),    Tab(
-                  text: "出租车",
-                  icon: Icon(Icons.local_taxi),
-                ),    Tab(
-                  text: "出租车",
-                  icon: Icon(Icons.local_taxi),
-                ),    Tab(
-                  text: "出租车",
-                  icon: Icon(Icons.local_taxi),
-                ),    Tab(
-                  text: "出租车",
-                  icon: Icon(Icons.local_taxi),
-                ),
-              ],
+              tabs: items.map((item){
+                return Tab(
+                  text: item.title,
+                  icon: Icon(item.icon),
+                );
+              }).toList(),
             ),
           ),
           drawer: Text("退出登录"),
           endDrawer: Text("知道了 你退吧"),
 
           body: TabBarView(
-            children: <Widget>[
-              new Container(
-                child: Center(
-                 child: Text("你好")
-                ),
-              ),
-              new Container(
-                child: Center(
-                    child: Text("你好")
-                ),
-              ),
-              new Container(
-                child: Center(
-                    child: Text("你好")
-                ),
-              ),
-              new Container(
-                child: Center(
-                    child: Text("你好")
-                ),
-              ),
-              new Container(
-                child: Center(
-                    child: Text("你好")
-                ),
-              ),
 
-
-            ],
+            children:items.map((item){
+              return new Container(
+                child: Center(
+                    child: Text(item.title)
+                ),
+              );
+            }).toList(),
           ),
         ),
       ),
@@ -74,5 +41,21 @@ class ScaffoldWidget extends StatelessWidget{
     );
   }
 
-
 }
+
+
+class TabItem{
+ final String title;
+  final IconData icon;
+  const TabItem({this.title,this.icon});
+}
+
+
+
+const List<TabItem>  items = const<TabItem>[
+  const TabItem(title:"android",icon:Icons.android),
+  const TabItem(title:"image",icon:Icons.image),
+  const TabItem(title:"travel",icon:Icons.card_travel),
+  const TabItem(title:"people",icon:Icons.people),
+  const TabItem(title:"home",icon:Icons.home),
+];
