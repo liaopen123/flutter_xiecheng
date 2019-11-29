@@ -9,6 +9,7 @@ import 'dart:convert';
 import 'package:toast/toast.dart';
 
 import 'mywidget/ScaffoldWidget.dart';
+import 'mywidget/TabPageWidget.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         "imagepage":(context)=> ImageWidget(),
         "firstHeroPage":(context)=> FirstHeroPage(),
         "secondHeroPage":(context)=> SecondHeroPage(),
+        "tabPageWidget":(context)=> TabPageWidget(),
       },
     );
   }
@@ -63,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画","scaffold相关api"];
+  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型"];
 
   int _counter = 0;
 
@@ -131,6 +133,11 @@ class _MyHomePageState extends State<MyHomePage> {
         case 2:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return ScaffoldWidget();
+        }));
+        break;
+        case 3:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return TabPageWidget();
         }));
         break;
 
