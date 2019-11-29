@@ -8,6 +8,8 @@ import 'dart:convert';
 
 import 'package:toast/toast.dart';
 
+import 'mywidget/ScaffoldWidget.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -61,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画"];
+  var items = ["图片控件","动画","scaffold相关api"];
 
   int _counter = 0;
 
@@ -124,6 +126,11 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return AnimationWidget();
+        }));
+        break;
+        case 2:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return ScaffoldWidget();
         }));
         break;
 
