@@ -8,8 +8,10 @@ import 'dart:convert';
 
 import 'package:toast/toast.dart';
 
+import 'mywidget/HttpRequest.dart';
 import 'mywidget/ScaffoldWidget.dart';
 import 'mywidget/TabPageWidget.dart';
+import 'mywidget/futureweight.dart';
 
 void main() => runApp(MyApp());
 
@@ -65,9 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型"];
-
-  int _counter = 0;
+  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程"];
 
 
   void _incrementCounter() {
@@ -77,7 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
     });
   }
 
@@ -115,6 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+
     );
   }
 
@@ -138,6 +138,16 @@ class _MyHomePageState extends State<MyHomePage> {
         case 3:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return TabPageWidget();
+        }));
+        break;
+        case 4:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return HttpRequestWidget();
+        }));
+        break;
+        case 5:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return FutureWidget();
         }));
         break;
 
