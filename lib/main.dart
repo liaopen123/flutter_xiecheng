@@ -11,7 +11,9 @@ import 'package:toast/toast.dart';
 import 'mywidget/HttpRequest.dart';
 import 'mywidget/ScaffoldWidget.dart';
 import 'mywidget/TabPageWidget.dart';
+import 'mywidget/futurebuilderwidget.dart';
 import 'mywidget/futureweight.dart';
+import 'mywidget/spwidget.dart';
 
 void main() => runApp(MyApp());
 
@@ -67,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程"];
+  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据"];
 
 
   void _incrementCounter() {
@@ -148,6 +150,16 @@ class _MyHomePageState extends State<MyHomePage> {
         case 5:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return FutureWidget();
+        }));
+        break;
+        case 6:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return FutureBuilderWidget();
+        }));
+        break;
+        case 7:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return SPWidget();
         }));
         break;
 

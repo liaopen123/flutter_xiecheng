@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/mywidget/animation/RotationWidget.dart';
 import 'package:popup_menu/popup_menu.dart';
@@ -9,22 +11,49 @@ class FutureWidget extends StatefulWidget{
 }
 
 class _FutureWidget extends State<FutureWidget>{
+  String result = "待获取结果";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
       body: Container(
-//        child: BoxRotationAnimation(
-//          title: "rotate",
-//        ),
+        child: ListView(
+
+          children: <Widget>[
+
+            Text(result),
+
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text("future then"),
+              onPressed: doNest,
+            ),
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text("同步 async await"),
+              onPressed: testAsync,
+            ),
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text("future.whenComplete(类似finally)"),
+              onPressed: whenComplete,
+            ),   MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text("future.timeout"),
+              onPressed: testTimeout,
+            ),
+          ],
+        ),
       ),
 
 
 
       floatingActionButton: FloatingActionButton(
-        child:  BoxRotationAnimation(
-          title: "rotate",
-    ),
+        child:  Icon(Icons.add),
         onPressed: _showPopUpWindow,
       ),
     );
@@ -49,4 +78,91 @@ class _FutureWidget extends State<FutureWidget>{
 //    menu.show(rect: rect);
 
   }
+
+  Future<String> _testFuture() {
+
+//        return Future.value("lphsuccess");
+
+        return Future.error("lph error");
+
+//        throw new Error();
+
+    }
+
+
+
+
+  void doNest(){
+    _testFuture().then((s){
+      setState(() {
+        result = s;
+      });
+    },onError: (e){
+      setState(() {
+        result= "onError:$e";
+      });
+    }).catchError((e){
+      setState(() {
+        result = "catchError$e";
+      });
+    });
+  }
+
+
+
+  //同步
+  testAsync() async{
+
+   result = "异步"+ await Future.delayed(Duration(milliseconds: 3000),(){
+      return Future.value("123444444");
+    });
+
+   print("result:$result");
+  }
+
+
+  void whenComplete() {
+    
+    var random  = new Random();
+    Future.delayed(Duration(milliseconds: 300),(){
+      if (random.nextBool()) {
+        return Future.value("廖鹏辉最帅");
+      }else{
+        throw "车祸现场";
+      }
+    }).then((s){
+      setState(() {
+        result = s;
+      });
+    }).catchError((e){
+
+      setState(() {
+        result ="eeror with complete";
+      });
+
+    }).whenComplete((){
+      print("finish");
+    });
+
+    
+
+  }
+
+
+  testTimeout(){
+
+   Future.delayed(Duration(milliseconds: 3000),(){
+     return "lph  success timeout";
+   }).timeout(Duration(milliseconds: 4000)).then((value){
+     setState(() {
+     result = value;
+     });
+   }).catchError((e){
+     setState(() {
+       result = "e:$e";
+     });
+   });
+
+  }
 }
+
