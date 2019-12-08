@@ -1,23 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/mywidget/AnimationWidget.dart';
 import 'package:flutter_xiecheng/mywidget/ImageWidget.dart';
+import 'package:flutter_xiecheng/mywidget/SizeBoxAndCardWidget.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/FirstHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/SecondHeroPage.dart';
+import 'package:flutter_xiecheng/mywidget/container/container_main.dart';
+import 'package:flutter_xiecheng/xiechengreal/xie_cheng_main.dart';
 import 'dart:io';
 import 'dart:convert';
 
 import 'package:toast/toast.dart';
-
+import 'package:flutter/rendering.dart'show debugPaintSizeEnabled;
 import 'mywidget/HttpRequest.dart';
 import 'mywidget/ScaffoldWidget.dart';
 import 'mywidget/TabPageWidget.dart';
+import 'mywidget/BoxDecorationWidget.dart';
 import 'mywidget/futurebuilderwidget.dart';
 import 'mywidget/futureweight.dart';
+import 'mywidget/layout_main.dart';
+import 'mywidget/physical_model_widget.dart';
 import 'mywidget/spwidget.dart';
 
-void main() => runApp(MyApp());
+void main(){
+  debugPaintSizeEnabled = true;
+  return runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -69,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据"];
+  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总"];
 
 
   void _incrementCounter() {
@@ -160,6 +170,30 @@ class _MyHomePageState extends State<MyHomePage> {
         case 7:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return SPWidget();
+        }));
+        break;
+        case 8:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return XieChengMain();
+        }));
+        break;
+        case 9:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return BoxDecorationWidget();
+        }));
+        break; case 10:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return SizeBoxAndCardWidget();
+        }));
+        break;
+        case 11:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return PhysicalModelWidget();
+        }));
+        break;
+        case 12:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return LayoutMain();
         }));
         break;
 
