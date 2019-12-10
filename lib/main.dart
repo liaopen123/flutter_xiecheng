@@ -10,7 +10,7 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:toast/toast.dart';
-import 'package:flutter/rendering.dart'show debugPaintSizeEnabled;
+//import 'package:flutter/rendering.dart'show debugPaintSizeEnabled;
 import 'mywidget/HttpRequest.dart';
 import 'mywidget/ScaffoldWidget.dart';
 import 'mywidget/TabPageWidget.dart';
@@ -22,7 +22,7 @@ import 'mywidget/physical_model_widget.dart';
 import 'mywidget/spwidget.dart';
 
 void main(){
-  debugPaintSizeEnabled = true;
+//  debugPaintSizeEnabled = true;
   return runApp(MyApp());
 }
 
@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总"];
+  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总","常用三方"];
 
 
   void _incrementCounter() {

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/mywidget/box/box_main.dart';
+import 'package:flutter_xiecheng/mywidget/otherwidget/ohters_main.dart';
 import 'package:flutter_xiecheng/mywidget/padding/padding_main.dart';
 import 'package:flutter_xiecheng/mywidget/row_main.dart';
+import 'package:flutter_xiecheng/mywidget/stack/stack_main.dart';
 
 import 'align/align_main.dart';
+import 'column_main.dart';
 import 'container/container_list_widget.dart';
 import 'container/container_main.dart';
+import 'gridview_main.dart';
 
 
 class LayoutMain extends StatefulWidget{
@@ -19,7 +23,7 @@ class LayoutMain extends StatefulWidget{
 class _LayoutMain extends State<LayoutMain> {
 
 
-  List<String> items = ["Container","Padding","Align","Box","Row"];
+  List<String> items = ["Container","Padding","Align","Box","Row","Column","Stack","GridView","Others"];
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +59,26 @@ class _LayoutMain extends State<LayoutMain> {
         case 4:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return RowMain();
+        }));
+        break;
+        case 5:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return ColumnMain();
+        }));
+        break;
+        case 6:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return StackMain();
+        }));
+        break;
+   case 7:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return GridViewMain();
+        }));
+        break;
+        case 8:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return OtherMain();
         }));
         break;
 
