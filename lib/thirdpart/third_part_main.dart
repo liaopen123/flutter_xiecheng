@@ -6,21 +6,23 @@ import 'package:flutter_xiecheng/mywidget/otherwidget/ohters_main.dart';
 import 'package:flutter_xiecheng/mywidget/padding/padding_main.dart';
 import 'package:flutter_xiecheng/mywidget/row_main.dart';
 import 'package:flutter_xiecheng/mywidget/stack/stack_main.dart';
+import 'package:flutter_xiecheng/thirdpart/dio/dio_main.dart';
+import 'package:flutter_xiecheng/thirdpart/tab_flow_listview/xiecheng_travel_page.dart';
 
 
 
-class LayoutMain extends StatefulWidget{
+class ThirdPartMain extends StatefulWidget{
 
 
 
-  _LayoutMain createState() => _LayoutMain();
+  _ThirdPartMain createState() => _ThirdPartMain();
 }
 
 
-class _LayoutMain extends State<LayoutMain> {
+class _ThirdPartMain extends State<ThirdPartMain> {
 
 
-  List<String> items = ["dio",];
+  List<String> items = ["dio","瀑布流和tab"];
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,12 @@ class _LayoutMain extends State<LayoutMain> {
 
       case 0:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return ContainerMain();
+          return DioMain();
+        }));
+        break;
+        case 1:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return XieChengTravelPage();
         }));
         break;
 
