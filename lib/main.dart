@@ -28,7 +28,12 @@ void main(){
   debugPaintSizeEnabled = true;
 //初始dio各式各样的参数
 initDio();
+initScreenUtil();
   return runApp(MyApp());
+}
+
+void initScreenUtil() {
+
 }
 
 void initDio() {

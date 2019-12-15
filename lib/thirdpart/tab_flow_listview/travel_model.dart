@@ -3,6 +3,11 @@ class TravelModel {
   int totalCount;
   List<TravelItem> resultList;
 
+  @override
+  String toString() {
+    return 'TravelModel{totalCount: $totalCount, resultList: $resultList}';
+  }
+
   TravelModel({this.totalCount, this.resultList});
 
   TravelModel.fromJson(Map<String, dynamic> json) {
@@ -28,6 +33,11 @@ class TravelModel {
 class TravelItem {
   int type;
   Article article;
+
+  @override
+  String toString() {
+    return 'TravelItem{type: $type, article: $article}';
+  }
 
   TravelItem({this.type, this.article});
 
@@ -75,6 +85,12 @@ class Article {
   int collectCount;
   int articleStatus;
   String poiName;
+
+
+  @override
+  String toString() {
+    return 'Article{articleId: $articleId, articleType: $articleType, productType: $productType, sourceType: $sourceType, articleTitle: $articleTitle, author: $author, images: $images, hasVideo: $hasVideo, readCount: $readCount, likeCount: $likeCount, commentCount: $commentCount, urls: $urls, tags: $tags, topics: $topics, pois: $pois, publishTime: $publishTime, publishTimeDisplay: $publishTimeDisplay, shootTime: $shootTime, shootTimeDisplay: $shootTimeDisplay, level: $level, distanceText: $distanceText, isLike: $isLike, imageCounts: $imageCounts, isCollected: $isCollected, collectCount: $collectCount, articleStatus: $articleStatus, poiName: $poiName}';
+  }
 
   Article(
       {this.articleId,
