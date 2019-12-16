@@ -23,9 +23,10 @@ import 'mywidget/futureweight.dart';
 import 'mywidget/layout_main.dart';
 import 'mywidget/physical_model_widget.dart';
 import 'mywidget/spwidget.dart';
+import 'mywidget/view/view_main.dart';
 
 void main(){
-  debugPaintSizeEnabled = true;
+//  debugPaintSizeEnabled = true;
 //初始dio各式各样的参数
 initDio();
 initScreenUtil();
@@ -97,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总","常用三方"];
+  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总","常用三方","自定义View"];
 
 
   void _incrementCounter() {
@@ -217,6 +218,11 @@ class _MyHomePageState extends State<MyHomePage> {
       case 13:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return ThirdPartMain();
+        }));
+        break;
+        case 14:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return ViewMain();
         }));
         break;
     }
