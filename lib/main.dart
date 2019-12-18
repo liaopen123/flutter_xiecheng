@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/mywidget/AnimationWidget.dart';
 import 'package:flutter_xiecheng/mywidget/ImageWidget.dart';
@@ -5,6 +6,8 @@ import 'package:flutter_xiecheng/mywidget/SizeBoxAndCardWidget.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/FirstHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/SecondHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/container/container_main.dart';
+import 'package:flutter_xiecheng/thirdpart/dio/single_instance_dio.dart';
+import 'package:flutter_xiecheng/thirdpart/third_part_main.dart';
 import 'package:flutter_xiecheng/xiechengreal/xie_cheng_main.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -20,10 +23,26 @@ import 'mywidget/futureweight.dart';
 import 'mywidget/layout_main.dart';
 import 'mywidget/physical_model_widget.dart';
 import 'mywidget/spwidget.dart';
+import 'mywidget/view/view_main.dart';
 
 void main(){
-  debugPaintSizeEnabled = true;
+//  debugPaintSizeEnabled = true;
+//初始dio各式各样的参数
+initDio();
+initScreenUtil();
   return runApp(MyApp());
+}
+
+void initScreenUtil() {
+
+}
+
+void initDio() {
+
+  dio.options.baseUrl ="http://nsneo-b2c.api.shanghai.cosmoplat.com/api";
+  dio.options.connectTimeout =5000;
+  dio.options.receiveTimeout = 5000;
+  dio.interceptors.add(LogInterceptor());
 }
 
 class MyApp extends StatelessWidget {
@@ -79,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总"];
+  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总","常用三方","自定义View"];
 
 
   void _incrementCounter() {
@@ -196,7 +215,16 @@ class _MyHomePageState extends State<MyHomePage> {
           return LayoutMain();
         }));
         break;
-
+      case 13:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return ThirdPartMain();
+        }));
+        break;
+        case 14:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return ViewMain();
+        }));
+        break;
     }
 
   }

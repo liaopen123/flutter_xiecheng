@@ -25,6 +25,7 @@ class _OffStage01 extends State<OffStage01> {
           Offstage(
             offstage: !isShow,
             child: Container(
+              color: Colors.blue,
               width: 200,
               height: 200,
             ),

@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 
 
 
-class RowMain extends StatelessWidget{
+class ColumnMain extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title:Text("ROW")),
 
-      body: Row(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         verticalDirection: VerticalDirection.down,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           _item,
           _item,
