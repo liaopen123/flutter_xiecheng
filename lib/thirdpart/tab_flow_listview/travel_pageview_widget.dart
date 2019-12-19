@@ -33,7 +33,7 @@ class  _TravelPageViewWidget extends State<TravelPageViewWidget>{
   
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+
     return Container(
       child: new StaggeredGridView.countBuilder(
         controller: _scrollController,

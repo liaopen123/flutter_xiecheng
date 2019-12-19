@@ -20,7 +20,7 @@ class TodoDB extends DBHelper with ToDoOpration{
 
   @override
   void onCreate(Database database, int version) {
-    database.execute( 'CREATE TABLE Test233 (id INTEGER PRIMARY KEY, name TEXT, value INTEGER, num REAL)');
+//    database.execute( 'CREATE TABLE Test233 (id INTEGER PRIMARY KEY, name TEXT, value INTEGER, num REAL)');
   }
 
   @override
@@ -42,7 +42,8 @@ class TodoDB extends DBHelper with ToDoOpration{
     if(database==null){
       database = await getDataBase();
     }
-    return await database.rawQuery('SELECT * FROM Test');
+    List<Map<String, dynamic>> maps =await database.rawQuery('SELECT * FROM Test233');
+    return maps;
   }
 
   @override
