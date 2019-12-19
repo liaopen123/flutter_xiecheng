@@ -6,6 +6,8 @@ import 'package:flutter_xiecheng/mywidget/SizeBoxAndCardWidget.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/FirstHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/SecondHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/container/container_main.dart';
+import 'package:flutter_xiecheng/mywidget/fun/navigator_back_intercepter_widget.dart';
+import 'package:flutter_xiecheng/thirdpart/camera/flutter_camera.dart';
 import 'package:flutter_xiecheng/thirdpart/dio/single_instance_dio.dart';
 import 'package:flutter_xiecheng/thirdpart/third_part_main.dart';
 import 'package:flutter_xiecheng/xiechengreal/xie_cheng_main.dart';
@@ -18,6 +20,7 @@ import 'mywidget/HttpRequest.dart';
 import 'mywidget/ScaffoldWidget.dart';
 import 'mywidget/TabPageWidget.dart';
 import 'mywidget/BoxDecorationWidget.dart';
+import 'mywidget/fun/fun_widget_main.dart';
 import 'mywidget/futurebuilderwidget.dart';
 import 'mywidget/futureweight.dart';
 import 'mywidget/layout_main.dart';
@@ -98,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总","常用三方","自定义View"];
+  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","future异步编程","FutureBuilder网络请求刷新UI","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总","常用三方","自定义View","Camera","16.(暂无)基础控件Widget","功能组件"];
 
 
   void _incrementCounter() {
@@ -223,6 +226,21 @@ class _MyHomePageState extends State<MyHomePage> {
         case 14:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return ViewMain();
+        }));
+        break;
+        case 15:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return FlutterCamera();
+        }));
+        break;
+        case 16:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return NavigatorBackIntercepterWidget();
+        }));
+        break;
+        case 17:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return FunWidgetMain();
         }));
         break;
     }

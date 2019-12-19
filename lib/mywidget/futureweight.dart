@@ -44,7 +44,7 @@ class _FutureWidget extends State<FutureWidget>{
               color: Colors.blue,
               textColor: Colors.white,
               child: Text("future.timeout"),
-              onPressed: testTimeout,
+              onPressed: testFuture,
             ),
           ],
         ),
@@ -163,6 +163,35 @@ class _FutureWidget extends State<FutureWidget>{
      });
    });
 
+  }
+
+
+
+
+
+  testFuture(){
+
+    print("开始执行演示操作勒.....");
+  var result = getStting();
+  print("马上么:$result");
+
+
+  }
+
+
+
+  Future<String> getStting() async{
+
+  String value =   await Future.delayed(Duration(milliseconds: 4000),(){
+      return "廖鹏辉";
+    }).then((value){
+//      print("拿到结果:$value");
+
+      return "拿到结果:$value";
+    });
+
+    print("拿到结果:$value");
+    return value;
   }
 }
 
