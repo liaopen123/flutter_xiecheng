@@ -9,6 +9,8 @@ import 'package:flutter_xiecheng/mywidget/stack/stack_main.dart';
 import 'package:flutter_xiecheng/thirdpart/dio/dio_main.dart';
 import 'package:flutter_xiecheng/thirdpart/tab_flow_listview/xiecheng_travel_page.dart';
 
+import 'db_helper/DBTestWidget.dart';
+
 
 
 class ThirdPartMain extends StatefulWidget{
@@ -22,7 +24,7 @@ class ThirdPartMain extends StatefulWidget{
 class _ThirdPartMain extends State<ThirdPartMain> {
 
 
-  List<String> items = ["dio","瀑布流和tab"];
+  List<String> items = ["dio","瀑布流和tab","DBTestWidget"];
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,11 @@ class _ThirdPartMain extends State<ThirdPartMain> {
         case 1:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return XieChengTravelPage();
+        }));
+        break;
+        case 2:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return DBTestWidget();
         }));
         break;
 
