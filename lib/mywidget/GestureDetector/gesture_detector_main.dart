@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_xiecheng/mywidget/GestureDetector/gesture_detector_touch_widget.dart';
 import 'package:flutter_xiecheng/mywidget/GestureDetector/gesture_detector_widget.dart';
 import 'package:flutter_xiecheng/mywidget/align/align_01.dart';
 import 'package:flutter_xiecheng/mywidget/align/align_02.dart';
 import 'package:flutter_xiecheng/mywidget/container/container_list_widget.dart';
-import 'package:flutter_xiecheng/mywidget/fun/Inherited_widget/test_inherited.dart';
 import 'package:flutter_xiecheng/mywidget/padding/padding_01.dart';
 import 'package:flutter_xiecheng/mywidget/padding/padding_02.dart';
 
-import 'navigator_back_intercepter_widget.dart';
 
-
-class FunWidgetMain extends StatefulWidget{
+class AlignMain extends StatefulWidget{
 
 
 
-  _FunWidgetMain createState() => _FunWidgetMain();
+  _AlignMain createState() => _AlignMain();
 }
 
 
-class _FunWidgetMain extends State<FunWidgetMain> {
+class _AlignMain extends State<AlignMain> {
 
 
-  List<String> items = ["导航返回拦截","数据共享shareInherited","跨组件状态共享（Provider）","GestureDetector"];
+  List<String> items = ["点击事件监听","滑动监听"];
 
   @override
   Widget build(BuildContext context) {
@@ -36,22 +34,12 @@ class _FunWidgetMain extends State<FunWidgetMain> {
 
       case 0:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return NavigatorBackIntercepterWidget();
+          return GestureDetectorWidget();
         }));
         break;
         case 1:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return TestInheritedWidget();
-        }));
-        break;
-        case 2:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return TestInheritedWidget();
-        }));
-        break;
-        case 3:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return GestureDetectorWidget();
+          return GestureDetectorTouchWidget();
         }));
         break;
 

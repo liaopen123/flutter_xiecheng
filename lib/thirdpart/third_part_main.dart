@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_xiecheng/mywidget/apps/app1/home_page.dart';
 import 'package:flutter_xiecheng/mywidget/box/box_main.dart';
 import 'package:flutter_xiecheng/mywidget/container/container_list_widget.dart';
 import 'package:flutter_xiecheng/mywidget/container/container_main.dart';
@@ -25,7 +26,7 @@ class ThirdPartMain extends StatefulWidget{
 class _ThirdPartMain extends State<ThirdPartMain> {
 
 
-  List<String> items = ["dio","瀑布流和tab","官方自带sqfilter","DBTestWidget"];
+  List<String> items = ["dio","瀑布流和tab","官方自带sqfilter","DBTestWidget","App1"];
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +57,11 @@ class _ThirdPartMain extends State<ThirdPartMain> {
         case 3:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return SqFilterABC();
+        }));
+        break;
+        case 4:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return HomePage();
         }));
         break;
 

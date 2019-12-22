@@ -24,10 +24,10 @@ class _SqFilterABCState extends State<SqFilterABC> with TickerProviderStateMixin
 
 
     controller = new AnimationController(vsync: this,
-        duration: const Duration(milliseconds: 1000)
+        duration: const Duration(milliseconds: 100)
     );
     animation2 =
-        Tween(begin: Offset(-0.5, 0.0), end: Offset(1.0, 0.0)).animate(controller);
+        Tween(begin: Offset(-5.5, 0.0), end: Offset(1.0, 0.0)).animate(controller);
 
 
     animation =  new Tween(begin: 0.0,end: 100.0).animate(controller);
