@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BackBgWidget extends StatefulWidget{
+   Function startExpandFrontAnimation;
+  BackBgWidget( this.startExpandFrontAnimation);
+
   @override
   _BackBgWidgetState createState() => _BackBgWidgetState();
 
@@ -24,7 +27,11 @@ class _BackBgWidgetState extends State<BackBgWidget>{
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(Icons.close,color: Colors.grey,),
+              GestureDetector(
+                onTap: widget.startExpandFrontAnimation,
+                child:   Icon(Icons.close,color: Colors.grey,),
+              ),
+
               Padding(padding: EdgeInsets.only(left: 10),
               child: Text("Close Menu",style: TextStyle(color: Colors.grey,),),),
             ],

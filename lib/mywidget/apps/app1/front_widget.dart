@@ -5,6 +5,13 @@ const titles = {"My House", "Market", "Tools", "Neigbourhood"};
 class FrontWidget extends StatefulWidget {
   @override
   _FrontWidgetState createState() => _FrontWidgetState();
+
+  double cornerPercnet;
+  Function shrinkAnimation;
+
+  FrontWidget({this.cornerPercnet,this.shrinkAnimation});
+
+
 }
 
 class _FrontWidgetState extends State<FrontWidget>
@@ -22,7 +29,11 @@ class _FrontWidgetState extends State<FrontWidget>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      decoration:     BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20*widget.cornerPercnet),
+      ),
+
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
@@ -31,10 +42,15 @@ class _FrontWidgetState extends State<FrontWidget>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Icon(Icons.menu),
+
+              GestureDetector(
+                onTap: widget.shrinkAnimation,
+                child:    Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Icon(Icons.menu),
+                ),
               ),
+
               Text(
                 "Open Door",
                 style: TextStyle(color: Color(0xff266ed5), fontSize: 22),
