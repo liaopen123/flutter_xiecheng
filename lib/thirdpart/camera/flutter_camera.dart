@@ -75,7 +75,7 @@ class _FlutterCameraState extends State<FlutterCamera> {
               child: AspectRatio(
                 aspectRatio: 1.5,
                 child: Image(
-                  image: AssetImage("images/fatcat.jpg"),
+                  image: AssetImage("assets/images/fatcat.jpg"),
                 ),
               ),
             ),

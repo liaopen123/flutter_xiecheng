@@ -115,7 +115,7 @@ class _SqFilterABCState extends State<SqFilterABC> with TickerProviderStateMixin
           Container(
             height: 80,
             width: 80,
-            child:   Image.asset("images/fatcat.jpg" ,width: 80,height: 80,)
+            child:   Image.asset("assets/images/fatcat.jpg" ,width: 80,height: 80,)
             ,
           ),
           SlideTransition(

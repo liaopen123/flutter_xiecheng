@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/mywidget/apps/app1/home_page.dart';
+import 'package:flutter_xiecheng/mywidget/apps/test/TestWidget.dart';
+import 'package:flutter_xiecheng/mywidget/apps/todoapp/todo_home.dart';
 import 'package:flutter_xiecheng/mywidget/box/box_main.dart';
 import 'package:flutter_xiecheng/mywidget/container/container_list_widget.dart';
 import 'package:flutter_xiecheng/mywidget/container/container_main.dart';
@@ -26,7 +28,7 @@ class ThirdPartMain extends StatefulWidget{
 class _ThirdPartMain extends State<ThirdPartMain> {
 
 
-  List<String> items = ["dio","瀑布流和tab","官方自带sqfilter","DBTestWidget","App1"];
+  List<String> items = ["dio","瀑布流和tab","官方自带sqfilter","DBTestWidget","App1","TodoApp","Test"];
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +64,16 @@ class _ThirdPartMain extends State<ThirdPartMain> {
         case 4:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return HomePage();
+        }));
+        break;
+        case 5:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return TodoHomePage();
+        }));
+        break;
+        case 6:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return TestWidget();
         }));
         break;
 
