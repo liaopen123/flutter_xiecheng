@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/mywidget/apps/todoapp/type_list_page.dart';
-import 'package:flutter_xiecheng/mywidget/otherwidget/Flow_01.dart';
-import 'package:flutter_xiecheng/mywidget/router/customrouter.dart';
+import 'package:flutter_xiecheng/mywidget/fun_method/router/customrouter.dart';
 import 'package:toast/toast.dart';
 
 const double MarginLeft = 50;
@@ -84,14 +83,21 @@ class _TodoHomePageState extends State<TodoHomePage>
               ),
             ),
             Expanded(
-                child: PageView(
-              controller: pageController,
-              children: <Widget>[
-                todoCard(),
-                todoCard(),
-                todoCard(),
-              ],
-            )),
+              child: PageView.builder(
+                itemCount: 3,
+                controller: pageController,
+                itemBuilder: (context, index) {
+                  return new Center(
+                    child:  todoCard(index),
+                  );},),),
+//                child: PageView(
+//              controller: pageController,
+//              children: <Widget>[
+//                todoCard(),
+//                todoCard(),
+//                todoCard(),
+//              ],
+//            )),
           ],
         ),
       ),
@@ -147,7 +153,7 @@ class _TodoHomePageState extends State<TodoHomePage>
     );
   }
 
-  todoCard() {
+  todoCard(int index) {
     double headPaddingLeftRight = 20;
     return GestureDetector(
       onVerticalDragEnd: (end) {
@@ -156,76 +162,116 @@ class _TodoHomePageState extends State<TodoHomePage>
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 85),
-        child: Card(
-          color: Colors.white,
-          shape:
+        child: Stack(
+          children: <Widget>[
+            Hero(
+              tag: "container$index",
+              child: Card(
+                color: Colors.white,
+                shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+                child: Container(
+                ),
+              ),
+            ),
+            Card(
+              color: Colors.white,
+              shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
-                    Container(
-                      margin:
-                          EdgeInsets.only(top: 10, left: headPaddingLeftRight),
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(BORDERRADIUS),
-                        border: Border.all(color: Colors.black12, width: 0.5),
-                      ),
-                      child: Icon(
-                        Icons.person,
-                        color: Color(0xfff05d70),
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Hero(
+                          tag: 'head$index',
+                          child:   Container(
+                            margin:
+                            EdgeInsets.only(top: 10, left: headPaddingLeftRight),
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(BORDERRADIUS),
+                              border: Border.all(color: Colors.black12, width: 0.5),
+                            ),
+                            child: Icon(
+                              Icons.person,
+                              color: Color(0xfff05d70),
+                            ),
+                          ),
+                        ),
+                        Hero(
+                          tag: 'more$index',
+                          child:   Padding(
+                            padding:
+                            EdgeInsets.only(top: 10, right: headPaddingLeftRight),
+                            child: Icon(
+                              Icons.more_vert,
+                              color: Colors.black26,
+                            ),
+                          ),
+                        ),
+
+
+                      ],
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(top: 10, right: headPaddingLeftRight),
-                      child: Icon(
-                        Icons.more_vert,
-                        color: Colors.black26,
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            left: headPaddingLeftRight,
+                            right: headPaddingLeftRight,
+                            bottom: 30),
+                        child: bottomCol(index),
                       ),
                     ),
                   ],
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        left: headPaddingLeftRight,
-                        right: headPaddingLeftRight,
-                        bottom: 30),
-                    child: bottomCol(),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
   }
 
-  bottomCol() {
+  bottomCol(int index) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Padding(
-          padding: EdgeInsets.only(bottom: 10),
-          child: Text(
-            "9 Tasks",
-            style: TextStyle(color: Colors.black45, fontSize: 16),
+        Hero(
+          tag: 'tasknum$index',
+          child:  Material(child: Padding(
+            padding: EdgeInsets.only(bottom: 10),
+            child: Text(
+              "9 Tasks",
+              style: TextStyle(color: Colors.black45, fontSize: 16,),
+            ),
+          ),
+            type: MaterialType.transparency, // likely needed
+             ),
+        ),
+       Hero(
+         tag: "category$index",
+         child: Material(
+           type: MaterialType.transparency,
+           child: Text(
+             "Personal",
+             style: TextStyle(fontSize: 35),
+           ),
+         ),
+       ),
+        Hero(
+          tag: 'progress$index',
+          child:   Material(
+            type: MaterialType.transparency,
+            child: Padding(padding: EdgeInsets.only(top: 25), child: progressBar()),
           ),
         ),
-        Text(
-          "Personal",
-          style: TextStyle(fontSize: 35),
-        ),
-        Padding(padding: EdgeInsets.only(top: 25), child: progressBar()),
+
       ],
     );
   }

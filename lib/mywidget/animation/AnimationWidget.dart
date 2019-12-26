@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/FirstHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/animation/tween/AnimationWidget01.dart';
 
-import 'animation/tween/animationwidget02/AnimationWidget02.dart';
-import 'animation/tween/animationwidget03/AnimationWidget03.dart';
-import 'animation/tween/animationwidget04/MultiAnimationWidget04.dart';
+import 'tween/animationwidget02/AnimationWidget02.dart';
+import 'tween/animationwidget03/AnimationWidget03.dart';
+import 'tween/animationwidget04/MultiAnimationWidget04.dart';
 
 
 class AnimationWidget extends StatefulWidget{

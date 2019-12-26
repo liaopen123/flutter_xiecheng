@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_xiecheng/mywidget/AnimationWidget.dart';
-import 'package:flutter_xiecheng/mywidget/ImageWidget.dart';
-import 'package:flutter_xiecheng/mywidget/SizeBoxAndCardWidget.dart';
+import 'package:flutter_xiecheng/mywidget/animation/AnimationWidget.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/ImageWidget.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/SizeBoxAndCardWidget.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/FirstHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/SecondHeroPage.dart';
-import 'package:flutter_xiecheng/mywidget/container/container_main.dart';
-import 'package:flutter_xiecheng/mywidget/fun/navigator_back_intercepter_widget.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/container/container_main.dart';
 import 'package:flutter_xiecheng/thirdpart/camera/flutter_camera.dart';
 import 'package:flutter_xiecheng/thirdpart/dio/single_instance_dio.dart';
 import 'package:flutter_xiecheng/thirdpart/third_part_main.dart';
@@ -16,17 +15,18 @@ import 'dart:convert';
 
 import 'package:toast/toast.dart';
 import 'package:flutter/rendering.dart'show debugPaintSizeEnabled;
-import 'mywidget/HttpRequest.dart';
-import 'mywidget/ScaffoldWidget.dart';
-import 'mywidget/TabPageWidget.dart';
-import 'mywidget/BoxDecorationWidget.dart';
-import 'mywidget/fun/fun_widget_main.dart';
-import 'mywidget/futurebuilderwidget.dart';
-import 'mywidget/futureweight.dart';
-import 'mywidget/layout_main.dart';
-import 'mywidget/physical_model_widget.dart';
-import 'mywidget/spwidget.dart';
+import 'mywidget/multi_container/ScaffoldWidget.dart';
+import 'mywidget/multi_container/TabPageWidget.dart';
+import 'mywidget/multi_container/box/BoxDecorationWidget.dart';
+import 'mywidget/multi_container/layout_main.dart';
+import 'mywidget/fun_widget/physical_model_widget.dart';
 import 'mywidget/view/view_main.dart';
+import 'package:flutter_xiecheng/mywidget/fun_method/HttpRequest.dart';
+import 'package:flutter_xiecheng/mywidget/fun_method/navigator_back_intercepter_widget.dart';
+import 'package:flutter_xiecheng/mywidget/fun_method/futureweight.dart';
+import 'package:flutter_xiecheng/mywidget/fun_method/fun_widget_main.dart';
+import 'package:flutter_xiecheng/mywidget/fun_method/futurebuilderwidget.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/spwidget.dart';
 
 void main(){
 //  debugPaintSizeEnabled = true;

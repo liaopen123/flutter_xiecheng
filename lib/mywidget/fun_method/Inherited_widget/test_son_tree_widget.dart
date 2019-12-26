@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_xiecheng/mywidget/fun/Inherited_widget/share_data_widget.dart';
+import 'package:flutter_xiecheng/mywidget/fun_method/Inherited_widget/share_data_widget.dart';
 
 
 class TestSonTreeWidget extends StatefulWidget{

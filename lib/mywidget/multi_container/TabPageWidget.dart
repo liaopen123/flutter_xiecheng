@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_xiecheng/HomePage.dart';
-import 'package:flutter_xiecheng/MinePage.dart';
-import 'package:flutter_xiecheng/NewsPage.dart';
-import 'package:flutter_xiecheng/SearchPage.dart';
+import 'package:flutter_xiecheng/xiechengreal/HomePage.dart';
+import 'package:flutter_xiecheng/xiechengreal/MinePage.dart';
+import 'package:flutter_xiecheng/xiechengreal/NewsPage.dart';
+import 'package:flutter_xiecheng/xiechengreal/SearchPage.dart';
 
 class TabPageWidget extends StatefulWidget {
 

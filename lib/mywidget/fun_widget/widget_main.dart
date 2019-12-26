@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_xiecheng/mywidget/container/container_list_widget.dart';
-import 'package:flutter_xiecheng/mywidget/padding/padding_01.dart';
-import 'package:flutter_xiecheng/mywidget/padding/padding_02.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/container/container_list_widget.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/padding/padding_01.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/padding/padding_02.dart';
 
 
 class PaddingMain extends StatefulWidget{
@@ -15,7 +15,7 @@ class PaddingMain extends StatefulWidget{
 class _PaddingMain extends State<PaddingMain> {
 
 
-  List<String> items = ["Padding不包含child","Padding包含child"];
+  List<String> items = ["单选框Radio","Padding包含child"];
 
   @override
   Widget build(BuildContext context) {

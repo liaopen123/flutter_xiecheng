@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_xiecheng/mywidget/fun/Inherited_widget/share_data_widget.dart';
-import 'package:flutter_xiecheng/mywidget/fun/Inherited_widget/test_son_tree_widget.dart';
-
+import 'package:flutter_xiecheng/mywidget/fun_method/Inherited_widget/share_data_widget.dart';
+import 'package:flutter_xiecheng/mywidget/fun_method/Inherited_widget/test_son_tree_widget.dart';
 class TestInheritedWidget extends StatefulWidget{
   @override
   _TestInheritedState createState() {

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_xiecheng/mywidget/box/box_main.dart';
-import 'package:flutter_xiecheng/mywidget/otherwidget/ohters_main.dart';
-import 'package:flutter_xiecheng/mywidget/padding/padding_main.dart';
-import 'package:flutter_xiecheng/mywidget/row_main.dart';
-import 'package:flutter_xiecheng/mywidget/stack/stack_main.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/box/box_main.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/padding/padding_main.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/row_main.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/stack/stack_main.dart';
 
 import 'align/align_main.dart';
 import 'column_main.dart';
 import 'container/container_list_widget.dart';
 import 'container/container_main.dart';
 import 'gridview_main.dart';
+import 'otherwidget/ohters_main.dart';
 
 
 class LayoutMain extends StatefulWidget{

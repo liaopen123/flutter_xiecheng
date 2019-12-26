@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_xiecheng/mywidget/align/align_01.dart';
-import 'package:flutter_xiecheng/mywidget/align/align_02.dart';
-import 'package:flutter_xiecheng/mywidget/container/container_list_widget.dart';
-import 'package:flutter_xiecheng/mywidget/padding/padding_01.dart';
-import 'package:flutter_xiecheng/mywidget/padding/padding_02.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/align/align_01.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/align/align_02.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/container/container_list_widget.dart';
 
 
 class AlignMain extends StatefulWidget{

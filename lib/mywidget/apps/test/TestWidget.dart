@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_xiecheng/mywidget/common_scaffold.dart';
+import 'package:flutter_xiecheng/mywidget/view/common_scaffold.dart';
 
 
 class TestWidget extends StatelessWidget{
