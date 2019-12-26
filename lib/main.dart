@@ -15,6 +15,7 @@ import 'dart:convert';
 
 import 'package:toast/toast.dart';
 import 'package:flutter/rendering.dart'show debugPaintSizeEnabled;
+import 'mywidget/animation/animation_main.dart';
 import 'mywidget/multi_container/ScaffoldWidget.dart';
 import 'mywidget/multi_container/TabPageWidget.dart';
 import 'mywidget/multi_container/box/BoxDecorationWidget.dart';
@@ -161,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       case 1:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return AnimationWidget();
+          return AnimationMain();
         }));
         break;
         case 2:

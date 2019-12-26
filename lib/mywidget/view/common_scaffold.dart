@@ -5,7 +5,7 @@ class CommonScaffold extends StatelessWidget{
   String title;
   Widget child;
 
-  CommonScaffold({@required this.title,@required this.child});
+  CommonScaffold({ this.title : "233",@required this.child});
 
   @override
   Widget build(BuildContext context) {
