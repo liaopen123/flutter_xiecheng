@@ -36,7 +36,7 @@ class _BackBgWidgetState extends State<BackBgWidget>{
               child: Text("Close Menu",style: TextStyle(color: Colors.grey,),),),
             ],
           ),
-          Padding(padding: EdgeInsets.only(top: 80),
+          Padding(padding: EdgeInsets.only(top: 60),
           child: Row(
             children: <Widget>[
               CircleAvatar(child: FlutterLogo(),),
