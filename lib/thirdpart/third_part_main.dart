@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_xiecheng/mywidget/apps/app1/home_page.dart';
+import 'package:flutter_xiecheng/mywidget/apps/app3douyu/splashpage.dart';
 import 'package:flutter_xiecheng/mywidget/apps/test/TestWidget.dart';
 import 'package:flutter_xiecheng/mywidget/apps/todoapp/todo_home.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/container/container_list_widget.dart';
@@ -21,7 +22,8 @@ class _ThirdPartMain extends State<ThirdPartMain> {
     "DBTestWidget",
     "App1",
     "TodoApp",
-    "Test"
+    "Test",
+    "斗鱼",
   ];
 
   @override
@@ -67,6 +69,11 @@ class _ThirdPartMain extends State<ThirdPartMain> {
       case 6:
         Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return TestWidget();
+        }));
+        break;
+        case 7:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
+          return SplashPage();
         }));
         break;
     }
