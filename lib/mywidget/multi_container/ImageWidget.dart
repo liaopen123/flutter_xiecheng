@@ -31,6 +31,9 @@ class ImageWidget extends StatelessWidget{
           Image(image: CachedNetworkImageProvider("http://pic75.nipic.com/file/20150821/9448607_145742365000_2.jpg")),
           Text("使用icon:"),
           Icon(Icons.android,size: 100.0),
+          Text("FadeInImage2个图片的切换:"),
+          FadeInImage.assetNetwork(placeholder: "assets/images/dylogo.png", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578561084821&di=9f67156107dcf89538ecabdf04dba5b5&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa6cabdc0aa19a76a864799f7ff81c83a6db3d117746af-RPyhXf_fw658"),
+
         ],
       )
     );

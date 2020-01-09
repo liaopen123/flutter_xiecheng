@@ -57,6 +57,8 @@ flutter:
   assets:
     - assets/images/fatcat.jpg
     - assets/images/dylogo.png
+    - assets/images/init_icon.png
+    - assets/images/init_logo.webp
 
   fonts:
     - family: English

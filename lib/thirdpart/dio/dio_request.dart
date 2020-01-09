@@ -54,16 +54,16 @@ class _DioRequestWidget extends State<DioRequestWidget>{
   }
 
  void _get() async{
-    var response = await dio.get("/api/popup",queryParameters: {"type":"1",});
-   setState(() {
-     getResult +="$response";
-   });
+//    var response = await dio.get("/api/popup",queryParameters: {"type":"1",});
+//   setState(() {
+//     getResult +="$response";
+//   });
   }
   void _post() async{
-    var response = await dio.get("/member/select_member ",queryParameters: {"token":"8a2a5202-cff1-49b0-8148-a23da38a307d",});
-   setState(() {
-     postResult +="$response";
-   });
+//    var response = await dio.get("/member/select_member ",queryParameters: {"token":"8a2a5202-cff1-49b0-8148-a23da38a307d",});
+//   setState(() {
+//     postResult +="$response";
+//   });
   }
 
 

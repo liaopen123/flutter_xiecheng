@@ -28,7 +28,6 @@ class DRRectCustomerPainter  extends CustomPainter{
     var center = Offset(50, 50);
     Rect rect =  new Rect.fromCenter(center:center,width:100,height: 40);
     canvas.drawOval(rect,  painter);
-
   }
 
   @override

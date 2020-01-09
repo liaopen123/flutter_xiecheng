@@ -32,8 +32,6 @@ import 'package:flutter_xiecheng/mywidget/multi_container/spwidget.dart';
 
 void main(){
   debugPaintSizeEnabled = true;
-//初始dio各式各样的参数
-initDio();
 initScreenUtil();
   return runApp(MyApp());
 }
@@ -42,13 +40,7 @@ void initScreenUtil() {
 
 }
 
-void initDio() {
 
-  dio.options.baseUrl ="http://nsneo-b2c.api.shanghai.cosmoplat.com/api";
-  dio.options.connectTimeout =5000;
-  dio.options.receiveTimeout = 5000;
-  dio.interceptors.add(LogInterceptor());
-}
 
 class MyApp extends StatelessWidget {
 
