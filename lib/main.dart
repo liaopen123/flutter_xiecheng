@@ -31,7 +31,7 @@ import 'package:flutter_xiecheng/mywidget/fun_method/microtask_future/futurebuil
 import 'package:flutter_xiecheng/mywidget/multi_container/spwidget.dart';
 
 void main(){
-//  debugPaintSizeEnabled = true;
+  debugPaintSizeEnabled = true;
 //初始dio各式各样的参数
 initDio();
 initScreenUtil();
