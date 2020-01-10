@@ -36,7 +36,7 @@ class HttpUtils {
   ///
   ///
   static final baseSchema = 'http';
-  static final baseHost = '172.18.50.139';
+  static final baseHost = '172.18.50.152';
   static final basePort = '1236';
   static final baseUrl = '$baseSchema://$baseHost:$basePort';
   static const int CONNECT_TIMEOUT = 10000;

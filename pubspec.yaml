@@ -59,6 +59,16 @@ flutter:
     - assets/images/dylogo.png
     - assets/images/init_icon.png
     - assets/images/init_logo.webp
+    - assets/images/nav/nav-11.jpg
+    - assets/images/nav/nav-21.jpg
+    - assets/images/nav/nav-31.jpg
+    - assets/images/nav/nav-41.jpg
+    - assets/images/nav/nav-51.jpg
+    - assets/images/nav/nav-12.jpg
+    - assets/images/nav/nav-22.jpg
+    - assets/images/nav/nav-32.jpg
+    - assets/images/nav/nav-42.jpg
+    - assets/images/nav/nav-52.jpg
 
   fonts:
     - family: English
