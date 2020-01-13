@@ -5,6 +5,7 @@ import 'package:flutter_xiecheng/mywidget/multi_container/sliver/sliver_02.dart'
 import 'package:flutter_xiecheng/mywidget/multi_container/sliver/sliver_03.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/sliver/sliver_04.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/sliver/sliver_05.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/sliver/sliver_06.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/stack/stack_01.dart';
 
 
@@ -20,7 +21,7 @@ class SliverMain extends StatefulWidget{
 class _SliverMain extends State<SliverMain> {
 
 
-  List<String> items = ["SliverList和SliverGrid用法","SliverAppBar用法","SliverPersistentHeader","SliverFillRemaining","SliverFillViewport"];
+  List<String> items = ["SliverList和SliverGrid用法","SliverAppBar用法","SliverPersistentHeader","SliverFillRemaining","SliverFillViewport","滑动导航栏效果"];
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +57,11 @@ class _SliverMain extends State<SliverMain> {
         case 4:
           Navigator.push(context, new MaterialPageRoute(builder: (context){
             return Sliver05();
+          }));
+        break;
+        case 5:
+          Navigator.push(context, new MaterialPageRoute(builder: (context){
+            return Sliver06();
           }));
         break;
 

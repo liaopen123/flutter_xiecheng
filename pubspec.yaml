@@ -69,6 +69,7 @@ flutter:
     - assets/images/nav/nav-32.jpg
     - assets/images/nav/nav-42.jpg
     - assets/images/nav/nav-52.jpg
+    - assets/images/default-avatar.webp
 
   fonts:
     - family: English

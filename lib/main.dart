@@ -17,6 +17,7 @@ import 'package:toast/toast.dart';
 import 'package:flutter/rendering.dart'show debugPaintSizeEnabled;
 import 'mywidget/animation/animation_main.dart';
 import 'mywidget/fun_method/microtask_future/thread_main.dart';
+import 'mywidget/fun_widget/widget_main.dart';
 import 'mywidget/multi_container/ScaffoldWidget.dart';
 import 'mywidget/multi_container/TabPageWidget.dart';
 import 'mywidget/multi_container/box/BoxDecorationWidget.dart';
@@ -32,7 +33,7 @@ import 'package:flutter_xiecheng/mywidget/fun_method/microtask_future/futurebuil
 import 'package:flutter_xiecheng/mywidget/multi_container/spwidget.dart';
 
 void main(){
-  debugPaintSizeEnabled = true;
+//  debugPaintSizeEnabled = true;
 initScreenUtil();
   return runApp(MyApp());
 }
@@ -226,7 +227,7 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
         case 15:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return SliverMain();
+          return WidgetMain();
         }));
         break;
         case 16:

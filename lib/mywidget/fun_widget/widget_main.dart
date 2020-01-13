@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_xiecheng/mywidget/fun_widget/dialog/dialog_main.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/container/container_list_widget.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/padding/padding_01.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/padding/padding_02.dart';
+import 'package:flutter_xiecheng/mywidget/multi_container/sliver/sliver_main.dart';
 
 
-class PaddingMain extends StatefulWidget{
+class WidgetMain extends StatefulWidget{
 
 
 
-  _PaddingMain createState() => _PaddingMain();
+  _WidgetMain createState() => _WidgetMain();
 }
 
 
-class _PaddingMain extends State<PaddingMain> {
+class _WidgetMain extends State<WidgetMain> {
 
 
-  List<String> items = ["单选框Radio","Padding包含child"];
+  List<String> items = ["Sliver","Dialog"];
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +32,12 @@ class _PaddingMain extends State<PaddingMain> {
 
       case 0:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return Padding01();
+          return SliverMain();
         }));
         break;
         case 1:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return Padding02();
+          return DialogMain();
         }));
         break;
 
