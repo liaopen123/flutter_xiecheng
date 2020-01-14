@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_xiecheng/mywidget/fun_widget/dialog/customize_dialog.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/container/container_list_widget.dart';
 
 ///flutter  提供了 Abou
@@ -58,13 +59,19 @@ class DialogMain extends StatefulWidget {
 
 class _DialogMain extends State<DialogMain>
     with SingleTickerProviderStateMixin {
+  TextEditingController controller;
+  String text = "";
   AnimationController _animationController;
   List<String> items = [
     "AboutDialog",
     "AlertDialog",
     "SimpleDialog",
     "CupertinoAlertDialog",
-    "CupertinoFullscreenDialogTransition"
+    "CupertinoFullscreenDialogTransition",
+    "自定义Dialog",
+    "SatefulDialog",
+    "通过StatefulBuilder更新状态",
+    "MyCustomLoadingDialog",
   ];
 
   @override
@@ -74,6 +81,8 @@ class _DialogMain extends State<DialogMain>
       vsync: this,
       duration: Duration(milliseconds: 500),
     );
+
+
   }
 
   @override
@@ -99,10 +108,38 @@ class _DialogMain extends State<DialogMain>
         showCupertinoAlertDialog();
         break;
       case 4:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
-          return CupertinoFullscreenDialogTransitionPage();
-        }));
+//        Navigator.push(context, new MaterialPageRoute(builder: (context) {
+//          return CupertinoFullscreenDialogTransitionPage();
+//        }));
 
+        break;
+      case 5:
+        showDialog(
+            context: context,
+            builder: (context) {
+              return CustomizeDialog();
+            });
+        break;
+      case 6:
+        showDialog(
+            context: context,
+            barrierDismissible: true,
+            builder: (context) {
+              return InputDialog(
+                  onPress:(){
+
+                  setState(() {
+                    text = controller.text;
+                  });
+                  },
+              );
+            });
+        break;
+      case 7:
+    showMyDialogWithStateBuilder(context);
+        break;
+        case 8:
+          showMyCustomLoadingDialog(context);
         break;
     }
   }
@@ -282,36 +319,15 @@ class _DialogMain extends State<DialogMain>
 }
 
 
-
-class CupertinoFullscreenDialogTransitionPage extends StatefulWidget {
-  @override
-  _CupertinoFullscreenDialogTransitionPageState createState() => _CupertinoFullscreenDialogTransitionPageState();
-}
-
-class _CupertinoFullscreenDialogTransitionPageState extends State<CupertinoFullscreenDialogTransitionPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("CupertinoFullscreenDialogTransition"),
-      ),
-      body: ListView(
-        children: <Widget>[
-       Text("简介"),
-          CupertinoFullscreenDialogTransitionDemo()
-        ],
-      ),
-    );
-  }
-}
-
 class CupertinoFullscreenDialogTransitionDemo extends StatefulWidget {
   @override
-  _CupertinoFullscreenDialogTransitionDemoState createState() => _CupertinoFullscreenDialogTransitionDemoState();
+  _CupertinoFullscreenDialogTransitionDemoState createState() =>
+      _CupertinoFullscreenDialogTransitionDemoState();
 }
 
-class _CupertinoFullscreenDialogTransitionDemoState extends State<CupertinoFullscreenDialogTransitionDemo> with SingleTickerProviderStateMixin {
-
+class _CupertinoFullscreenDialogTransitionDemoState
+    extends State<CupertinoFullscreenDialogTransitionDemo>
+    with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
   CurvedAnimation _curvedAnimation;
@@ -323,7 +339,8 @@ class _CupertinoFullscreenDialogTransitionDemoState extends State<CupertinoFulls
       duration: const Duration(seconds: 1),
       vsync: this,
     );
-    _curvedAnimation = new CurvedAnimation(parent: _controller, curve: Curves.decelerate);
+    _curvedAnimation =
+        new CurvedAnimation(parent: _controller, curve: Curves.decelerate);
   }
 
   @override
@@ -358,3 +375,159 @@ class _CupertinoFullscreenDialogTransitionDemoState extends State<CupertinoFulls
     );
   }
 }
+
+class InputDialog extends Dialog {
+  Function onPress;
+  TextEditingController controller;
+  String text1 ="";
+
+  InputDialog({Key key,this.onPress}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    controller = TextEditingController();
+    controller.addListener(() {
+      text1 = controller.text;
+    });
+
+
+    return StatefulBuilder(builder: (context,StateSetter setState){
+      return         Padding(
+        padding: EdgeInsets.all(12),
+        child: Material(
+          type: MaterialType.transparency, //透明类型
+          child: new Center(
+            child: SizedBox(
+              width: 300,
+              height: 300,
+              child: new Container(
+                decoration: ShapeDecoration(
+                  color: Color(0xffffffff),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                  ),
+                ),
+                child: new Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    new Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: TextField(
+                        onChanged: (value){
+                          setState(){
+                            text1 = value;
+                          }
+                        },
+                        controller: controller,
+                      ),
+                    ),
+                    RaisedButton(
+                      onPressed: (){
+
+                      },
+                      child: Text("确定"),
+                    ),    RaisedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text("关闭"),
+                    ),
+                    Text(text1),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    });
+  }
+}
+
+
+void showMyDialogWithStateBuilder(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (context) {
+        bool selected = false;
+        return new AlertDialog(
+          title: new Text("StatefulBuilder"),
+          content:
+          new StatefulBuilder(builder: (context, StateSetter setState) {
+            return Container(
+              child: new CheckboxListTile(
+                  title: new Text("选项"),
+                  value: selected,
+                  onChanged: (bool) {
+                    setState(() {
+                      selected = !selected;
+                    });
+                  }),
+            );
+          }),
+        );
+      });
+}
+
+
+
+void showMyCustomLoadingDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return new MyCustomLoadingDialog();
+      });
+}
+
+class MyCustomLoadingDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    Duration insetAnimationDuration = const Duration(milliseconds: 100);
+    Curve insetAnimationCurve = Curves.decelerate;
+
+    RoundedRectangleBorder _defaultDialogShape = RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(2.0)));
+
+    return AnimatedPadding(
+      padding: MediaQuery.of(context).viewInsets +
+          const EdgeInsets.symmetric(horizontal: 40.0, vertical: 24.0),
+      duration: insetAnimationDuration,
+      curve: insetAnimationCurve,
+      child: MediaQuery.removeViewInsets(
+        removeLeft: true,
+        removeTop: true,
+        removeRight: true,
+        removeBottom: true,
+        context: context,
+        child: Center(
+          child: SizedBox(
+            width: 120,
+            height: 120,
+            child: Material(
+              elevation: 24.0,
+              color: Theme.of(context).dialogBackgroundColor,
+              type: MaterialType.card,
+              //在这里修改成我们想要显示的widget就行了，外部的属性跟其他Dialog保持一致
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new CircularProgressIndicator(),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: new Text("加载中"),
+                  ),
+                ],
+              ),
+              shape: _defaultDialogShape,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
