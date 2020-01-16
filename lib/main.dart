@@ -24,6 +24,7 @@ import 'mywidget/multi_container/box/BoxDecorationWidget.dart';
 import 'mywidget/multi_container/layout_main.dart';
 import 'mywidget/fun_widget/physical_model_widget.dart';
 import 'mywidget/multi_container/sliver/sliver_main.dart';
+import 'mywidget/statecontrol/state_control_main.dart';
 import 'mywidget/view/view_main.dart';
 import 'package:flutter_xiecheng/mywidget/fun_method/HttpRequest.dart';
 import 'package:flutter_xiecheng/mywidget/fun_method/navigator_back_intercepter_widget.dart';
@@ -97,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","异步相关","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总","常用三方","自定义View","Camera","16.(暂无)基础控件Widget","功能组件"];
+  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","异步相关","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总","常用三方","自定义View","Camera","16.(暂无)基础控件Widget","功能组件","状态管理"];
 
 
   void _incrementCounter() {
@@ -233,6 +234,11 @@ class _MyHomePageState extends State<MyHomePage> {
         case 16:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return FunWidgetMain();
+        }));
+        break;
+        case 17:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return SCMain();
         }));
         break;
     }
