@@ -36,6 +36,7 @@ dependencies:
   camera: ^0.5.7+1
   sqflite: ^1.1.7+3
   flutter_markdown: ^0.3.2
+  jpush_flutter: ^0.1.0
 
 
 dev_dependencies:
