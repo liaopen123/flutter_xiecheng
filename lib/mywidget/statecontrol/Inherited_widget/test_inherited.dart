@@ -43,5 +43,4 @@ class _TestInheritedState extends State<TestInheritedWidget>{
     );
   }
 
-
 }

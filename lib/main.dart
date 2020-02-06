@@ -6,10 +6,12 @@ import 'package:flutter_xiecheng/mywidget/multi_container/SizeBoxAndCardWidget.d
 import 'package:flutter_xiecheng/mywidget/animation/hero/FirstHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/SecondHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/container/container_main.dart';
+import 'package:flutter_xiecheng/mywidget/statecontrol/provider/Counter.dart';
 import 'package:flutter_xiecheng/thirdpart/camera/flutter_camera.dart';
 import 'package:flutter_xiecheng/thirdpart/dio/single_instance_dio.dart';
 import 'package:flutter_xiecheng/thirdpart/third_part_main.dart';
 import 'package:flutter_xiecheng/xiechengreal/xie_cheng_main.dart';
+import 'package:provider/provider.dart';
 import 'dart:io';
 import 'dart:convert';
 
@@ -35,8 +37,15 @@ import 'package:flutter_xiecheng/mywidget/multi_container/spwidget.dart';
 
 void main(){
 //  debugPaintSizeEnabled = true;
+
+  final counter = Counter();
+  final textSize = 48;
 initScreenUtil();
-  return runApp(MyApp());
+Provider<int>.value(value: textSize,
+child: ChangeNotifierProvider.value(value: counter,child: MyApp(),),
+);
+  return runApp(Provider<int>.value(value: textSize,
+    child: ChangeNotifierProvider.value(value: counter,child: MyApp(),),));
 }
 
 void initScreenUtil() {
