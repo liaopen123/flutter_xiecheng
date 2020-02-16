@@ -3,6 +3,7 @@ import 'package:flutter_xiecheng/mywidget/multi_container/container/container_li
 import 'package:flutter_xiecheng/mywidget/multi_container/padding/padding_01.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/padding/padding_02.dart';
 import 'package:flutter_xiecheng/mywidget/statecontrol/provider/provider_counter_page.dart';
+import 'package:flutter_xiecheng/mywidget/statecontrol/provider/review01/task_one_page.dart';
 import 'package:flutter_xiecheng/mywidget/statecontrol/stream/stream01.dart';
 import 'package:flutter_xiecheng/mywidget/statecontrol/stream/stream_main.dart';
 
@@ -20,7 +21,7 @@ class SCMain extends StatefulWidget{
 class _SCMain extends State<SCMain> {
 
 
-  List<String> items = ["InheritedWidget","Stream","Provider"];
+  List<String> items = ["InheritedWidget","Stream","Provider","Provider02"];
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +47,11 @@ class _SCMain extends State<SCMain> {
    case 2:
         Navigator.push(context, new MaterialPageRoute(builder: (context){
           return ProviderCounterPage()  ;
+        }));
+        break;
+  case 3:
+        Navigator.push(context, new MaterialPageRoute(builder: (context){
+          return TaskOnePage()  ;
         }));
         break;
 

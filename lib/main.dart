@@ -7,6 +7,7 @@ import 'package:flutter_xiecheng/mywidget/animation/hero/FirstHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/animation/hero/SecondHeroPage.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/container/container_main.dart';
 import 'package:flutter_xiecheng/mywidget/statecontrol/provider/Counter.dart';
+import 'package:flutter_xiecheng/mywidget/statecontrol/provider/review01/taskdata.dart';
 import 'package:flutter_xiecheng/thirdpart/camera/flutter_camera.dart';
 import 'package:flutter_xiecheng/thirdpart/dio/single_instance_dio.dart';
 import 'package:flutter_xiecheng/thirdpart/third_part_main.dart';
@@ -16,7 +17,7 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:toast/toast.dart';
-import 'package:flutter/rendering.dart'show debugPaintSizeEnabled;
+import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 import 'mywidget/animation/animation_main.dart';
 import 'mywidget/fun_method/microtask_future/thread_main.dart';
 import 'mywidget/fun_widget/widget_main.dart';
@@ -35,27 +36,32 @@ import 'package:flutter_xiecheng/mywidget/fun_method/fun_widget_main.dart';
 import 'package:flutter_xiecheng/mywidget/fun_method/microtask_future/futurebuilderwidget.dart';
 import 'package:flutter_xiecheng/mywidget/multi_container/spwidget.dart';
 
-void main(){
-//  debugPaintSizeEnabled = true;
+void main() {
+  debugPaintSizeEnabled = true;
 
-  final counter = Counter();
+  final counter = TaskData();
   final textSize = 48;
-initScreenUtil();
-Provider<int>.value(value: textSize,
-child: ChangeNotifierProvider.value(value: counter,child: MyApp(),),
+  initScreenUtil();
+//  return runApp(Provider<int>.value(
+//    value: textSize,
+//    child: ChangeNotifierProvider.value(
+//      value: counter,
+//      child: MyApp(),
+//    ),
+//  ));
+return runApp(
+  MultiProvider(providers: [
+    ChangeNotifierProvider<Counter>(create: (_)=>Counter(),),
+    ChangeNotifierProvider<TaskData>(create: (_)=>TaskData(),),
+  ],
+  child: MyApp(),
+  )
 );
-  return runApp(Provider<int>.value(value: textSize,
-    child: ChangeNotifierProvider.value(value: counter,child: MyApp(),),));
 }
 
-void initScreenUtil() {
-
-}
-
-
+void initScreenUtil() {}
 
 class MyApp extends StatelessWidget {
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -74,12 +80,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
-
       routes: {
-        "imagepage":(context)=> ImageWidget(),
-        "firstHeroPage":(context)=> FirstHeroPage(),
-        "secondHeroPage":(context)=> SecondHeroPage(),
-        "tabPageWidget":(context)=> TabPageWidget(),
+        "imagepage": (context) => ImageWidget(),
+        "firstHeroPage": (context) => FirstHeroPage(),
+        "secondHeroPage": (context) => SecondHeroPage(),
+        "tabPageWidget": (context) => TabPageWidget(),
       },
     );
   }
@@ -104,11 +109,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
-
-  var items = ["图片控件","动画","tab+viewpager类似","底部tab+fragment类型","Http请求","异步相关","share_perference存储本地数据","携程app","BoxDecoration","SizeBox and Card","PhysicalModelWidget","29总布局汇总","常用三方","自定义View","Camera","16.(暂无)基础控件Widget","功能组件","状态管理"];
-
+  var items = [
+    "图片控件",
+    "动画",
+    "tab+viewpager类似",
+    "底部tab+fragment类型",
+    "Http请求",
+    "异步相关",
+    "share_perference存储本地数据",
+    "携程app",
+    "BoxDecoration",
+    "SizeBox and Card",
+    "PhysicalModelWidget",
+    "29总布局汇总",
+    "常用三方",
+    "自定义View",
+    "Camera",
+    "16.(暂无)基础控件Widget",
+    "功能组件",
+    "状态管理"
+  ];
 
   void _incrementCounter() {
     setState(() {
@@ -122,7 +142,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -141,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.all(10.0),
           itemBuilder: (BuildContext context, int index) {
             return FlatButton(
-              onPressed: ()=>_itemClick(index),
+              onPressed: () => _itemClick(index),
               child: Card(
                 child: Center(
                   child: Text(items[index]),
@@ -154,103 +173,103 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
-
     );
   }
 
   void _itemClick(int index) {
-    Toast.show("index:$index", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
-    switch(index){
+    Toast.show("index:$index", context,
+        duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
+    switch (index) {
       case 0:
         Navigator.pushNamed(context, "imagepage");
         break;
 
       case 1:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return AnimationMain();
         }));
         break;
-        case 2:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 2:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return ScaffoldWidget();
         }));
         break;
-        case 3:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 3:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return TabPageWidget();
         }));
         break;
-        case 4:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 4:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return HttpRequestWidget();
         }));
         break;
-        case 5:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 5:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return ThreadMain();
         }));
         break;
 
-        case 6:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 6:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return SPWidget();
         }));
         break;
-        case 7:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 7:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return XieChengMain();
         }));
         break;
-        case 8:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 8:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return BoxDecorationWidget();
         }));
-        break; case 9:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+        break;
+      case 9:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return SizeBoxAndCardWidget();
         }));
         break;
-        case 10:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 10:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return PhysicalModelWidget();
         }));
         break;
-        case 11:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 11:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return LayoutMain();
         }));
         break;
       case 12:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return ThirdPartMain();
         }));
         break;
-        case 13:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 13:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return ViewMain();
         }));
         break;
-        case 14:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 14:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return FlutterCamera();
         }));
         break;
-        case 15:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 15:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return WidgetMain();
         }));
         break;
-        case 16:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 16:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return FunWidgetMain();
         }));
         break;
-        case 17:
-        Navigator.push(context, new MaterialPageRoute(builder: (context){
+      case 17:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return SCMain();
         }));
         break;
     }
-
   }
 }

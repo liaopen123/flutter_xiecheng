@@ -38,6 +38,7 @@ dependencies:
   flutter_markdown: ^0.3.2
   jpush_flutter: ^0.1.0
   provider: ^4.0.2
+  flare_flutter: any
 
 
 dev_dependencies:
@@ -72,6 +73,7 @@ flutter:
     - assets/images/nav/nav-42.jpg
     - assets/images/nav/nav-52.jpg
     - assets/images/default-avatar.webp
+    - assets/flar/button-animation.flr
 
   fonts:
     - family: English
