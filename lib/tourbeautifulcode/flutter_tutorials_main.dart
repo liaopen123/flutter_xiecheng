@@ -8,7 +8,7 @@ import 'package:flutter_xiecheng/thirdpart/dio/dio_main.dart';
 import 'package:flutter_xiecheng/thirdpart/sqfilte/SqFilteABC.dart';
 import 'package:flutter_xiecheng/thirdpart/tab_flow_listview/xiecheng_travel_page.dart';
 
-import 'asynfun03/asynmain.dart';
+import 'asynfun03/asyn_main.dart';
 
 
 class FlutterTourMain extends StatefulWidget {
@@ -17,7 +17,8 @@ class FlutterTourMain extends StatefulWidget {
 
 class _FlutterTourMain extends State<FlutterTourMain> {
   List<String> items = [
-    "掌握异步方法",
+    "掌握异步方法Future",
+
 
   ];
 

@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AsynMain extends StatefulWidget {
+class FutureMain extends StatefulWidget {
   @override
-  _AsynMainState createState() => _AsynMainState();
+  _FutureMainState createState() => _FutureMainState();
 }
 
-class _AsynMainState extends State<AsynMain> {
+class _FutureMainState extends State<FutureMain> {
   List<String> datas;
 
   @override
