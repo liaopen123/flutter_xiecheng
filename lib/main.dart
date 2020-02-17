@@ -11,6 +11,7 @@ import 'package:flutter_xiecheng/mywidget/statecontrol/provider/review01/taskdat
 import 'package:flutter_xiecheng/thirdpart/camera/flutter_camera.dart';
 import 'package:flutter_xiecheng/thirdpart/dio/single_instance_dio.dart';
 import 'package:flutter_xiecheng/thirdpart/third_part_main.dart';
+import 'package:flutter_xiecheng/tourbeautifulcode/flutter_tutorials_main.dart';
 import 'package:flutter_xiecheng/xiechengreal/xie_cheng_main.dart';
 import 'package:provider/provider.dart';
 import 'dart:io';
@@ -127,7 +128,8 @@ class _MyHomePageState extends State<MyHomePage> {
     "Camera",
     "16.(暂无)基础控件Widget",
     "功能组件",
-    "状态管理"
+    "状态管理",
+    "flutter-tutorials[Github]"
   ];
 
   void _incrementCounter() {
@@ -268,6 +270,11 @@ class _MyHomePageState extends State<MyHomePage> {
       case 17:
         Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return SCMain();
+        }));
+        break;
+        case 18:
+        Navigator.push(context, new MaterialPageRoute(builder: (context) {
+          return FlutterTourMain();
         }));
         break;
     }
